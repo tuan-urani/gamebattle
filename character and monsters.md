@@ -40,12 +40,136 @@ Người chơi là chỉ huy Quân Đoàn Aegis. Người chơi không trực ti
 
 Người chơi là chỉ huy Quân Đoàn Aegis, sử dụng **Aegis Energy** để triển khai các chiến binh đã sống sót qua quá trình **Aegis Resonance** ra chiến trường.
 
+## Quy Mô Roster V0.1
+
+Phiên bản thiết kế ban đầu dùng quy mô rõ ràng để dễ cân bằng:
+
+- **6 playable hero**
+- **14 monster thường hoặc elite**
+- **10 boss world**
+- tổng enemy type tính cả boss: **24**
+
+Không thêm hero hoặc monster mới nếu chưa có vai trò gameplay riêng. Nếu chỉ cần tăng độ khó, ưu tiên tăng level, wave composition hoặc modifier của map.
+
+## Cấp Độ Và Chỉ Số Hero
+
+Hero có level từ **1 đến 50**.
+
+Công thức chỉ số:
+
+```text
+Chỉ số ở level N = chỉ số level 1 + tăng mỗi level * (N - 1)
+```
+
+Các chỉ số chính:
+
+- **HP**: máu tối đa.
+- **ATK**: sát thương hoặc hiệu quả chính của hero. Với Core Engineer, ATK là hiệu quả pylon, không phải sát thương trực tiếp.
+- **DEF**: giảm sát thương nhận vào.
+- **Nộ/đòn**: lượng nộ nhận được từ một đòn đánh cơ bản hoặc một chu kỳ hành động.
+
+Công thức sát thương đề xuất:
+
+```text
+Sát thương thực nhận = ATK * 100 / (100 + DEF mục tiêu)
+```
+
+### Bảng chỉ số hero level 1
+
+| Hero      | Class            | Mở khóa | HP  | ATK | DEF | Nộ/đòn | Tăng HP/level | Tăng ATK/level | Tăng DEF/level | Tăng nộ/level |
+| --------- | ---------------- | ------: | --: | --: | --: | -----: | -------------: | --------------: | --------------: | ------------: |
+| Kael Voss | Vanguard Breaker | World 1 | 760 |  52 |  26 |    8.5 |             65 |               4 |               2 |          0.15 |
+| Mira Sane | Pulse Ranger     | World 1 | 430 |  72 |  10 |   11.0 |             34 |               6 |               1 |          0.20 |
+| Riven Hal | Resonance Blade  | World 3 | 520 |  88 |  14 |   12.0 |             42 |               7 |               1 |          0.18 |
+| Iris Venn | Aegis Medic      | World 5 | 460 |  38 |  12 |   13.0 |             36 |               4 |               1 |          0.25 |
+| Mason Rook | Core Engineer   | World 2 | 500 |  20 |  14 |   10.0 |             38 |               3 |               1 |          0.20 |
+| Atlas-09  | Overdrive Titan  | World 7 | 1050 | 140 |  34 |    7.0 |             90 |              10 |               3 |          0.10 |
+
+### Bảng chỉ số hero level 50
+
+| Hero       | HP   | ATK | DEF | Nộ/đòn |
+| ---------- | ---: | --: | --: | -----: |
+| Kael Voss  | 3945 | 248 | 124 |   15.9 |
+| Mira Sane  | 2096 | 366 |  59 |   20.8 |
+| Riven Hal  | 2578 | 431 |  63 |   20.8 |
+| Iris Venn  | 2224 | 234 |  61 |   25.3 |
+| Mason Rook | 2362 | 167 |  63 |   19.8 |
+| Atlas-09   | 5460 | 630 | 181 |   11.9 |
+
 ## Các Lớp Chiến Binh Aegis
 
 Mỗi chiến binh Aegis chỉ có 2 loại hành động:
 
 - **Đòn đánh cơ bản**: tự động đánh theo vai trò của class
 - **Skill nộ**: đánh thường sẽ tích nộ, khi đầy nộ thì chiến binh tự động dùng skill nộ
+
+Skill nộ có thể được nâng cấp theo bậc. Hero cần đạt các mốc level như 10, 15 và 20 để mở quyền nâng skill nộ lên bậc cao hơn.
+
+Nguyên tắc nâng skill nộ:
+
+- level chỉ mở điều kiện nâng, không tự động nâng skill
+- mỗi bậc skill nên tăng hiệu ứng rõ ràng
+- ưu tiên tăng số mục tiêu, phạm vi, thời gian hiệu lực, số debuff được giải hoặc lượng tài nguyên tạo ra
+- tránh chỉ tăng sát thương theo phần trăm nếu không tạo khác biệt trong cách chơi
+
+### Bảng nâng cấp skill nộ
+
+| Hero       | Bậc 1 | Bậc 2 - level 10 | Bậc 3 - level 15 | Bậc 4 - level 20 |
+| ---------- | ----- | ---------------- | ---------------- | ---------------- |
+| Kael Voss | Khiên cho tuyến trước gần nhất, đẩy lùi enemy gần nhất | Khiên ảnh hưởng 2 đồng minh tuyến trước | Tăng thời gian khiên và lực đẩy lùi | Khiên nhận thêm kháng debuff ngắn hạn |
+| Mira Sane | Bắn xuyên một đường thẳng | Thêm một phát phụ vào enemy máu thấp | Đòn xuyên làm chậm enemy trúng đạn | Đòn xuyên gây thêm sát thương lên enemy bị giáp hoặc khiên |
+| Riven Hal | Lướt chém enemy nguy hiểm nhất trong tầm | Chém thêm 1 mục tiêu gần đó | Nếu hạ mục tiêu, nhận lại một phần nộ | Ưu tiên elite hoặc boss phụ, tăng sát thương kết liễu |
+| Iris Venn | Hồi mạnh 1 đồng minh nguy cấp và xóa 1 debuff | Hồi thêm 1 đồng minh nữa | Xóa tối đa 2 debuff | Đồng minh được hồi nhận kháng debuff ngắn hạn |
+| Mason Rook | Tăng nhịp tạo Aegis Energy của pylon | Tạo ngay một lượng Aegis Energy khi kích hoạt | Đồng minh gần pylon tăng tốc độ tích nộ | Tăng thời gian hiệu lực và tạm tăng giới hạn Aegis Energy |
+| Atlas-09 | Gây nổ diện rộng và đẩy lùi enemy | Tăng phạm vi nổ | Thêm hiệu ứng choáng ngắn lên enemy thường | Gây thêm sát thương lên elite và boss |
+
+## Hệ Thống Debuff
+
+Debuff là hiệu ứng xấu có thời gian tồn tại, gắn lên hero hoặc toàn đội hình Aegis.
+
+Quy tắc chung:
+
+- debuff có thể bị giảm thời gian bởi chỉ số kháng debuff
+- Aegis Medic có thể xóa debuff bằng skill nộ
+- item kháng debuff chỉ tác động lên debuff status, không chặn boss mechanic hoặc enemy buff
+- hiệu ứng tức thời như rút nộ sẽ không có thời gian tồn tại, nhưng vẫn được tính là debuff để item kháng có thể giảm mức ảnh hưởng
+
+### Debuff status v0.1
+
+Hiện tại game có **6 debuff status chính**.
+
+| Debuff | Tác dụng | Thời gian gốc | Stack | Nguồn gây ra |
+| ------ | -------- | ------------: | ----- | ------------ |
+| **Signal Drain** | giảm 40% tốc độ tích nộ | 6 giây | refresh thời gian, không cộng dồn | Static Carrier, Mute Leech, Signal Host, Tralalero Tralala Prime, La Torre Frequenza, The Mother Frequency |
+| **Rage Leech** | rút ngay 15 nộ hiện có của mục tiêu | tức thời | không stack | Mute Leech |
+| **Desync** | 25% khả năng đánh hụt đòn đánh cơ bản | 5 giây | refresh thời gian, không cộng dồn | Scream Spitter, Tralalero Tralala Prime, The Mother Frequency |
+| **Rage Lock** | không thể tích thêm nộ | 4 giây | refresh thời gian, không cộng dồn | La Torre Frequenza, The Mother Frequency |
+| **Ultimate Lock** | có đủ nộ nhưng không thể dùng skill nộ | 4 giây | refresh thời gian, không cộng dồn | La Torre Frequenza, The Mother Frequency |
+| **Toxic Suppression** | giảm 50% hồi máu nhận vào và mất 2% HP tối đa mỗi giây | 6 giây | refresh thời gian, không cộng dồn | Dottore Mozzarella |
+
+### Nguồn debuff theo enemy
+
+| Enemy/Boss | Debuff gây ra | Ghi chú |
+| ---------- | ------------- | ------- |
+| Static Carrier | Signal Drain | kích hoạt khi chết, phạm vi nhỏ quanh điểm nổ |
+| Scream Spitter | Desync | đòn bắn sóng âm có cơ hội gây lạc nhịp |
+| Mute Leech | Rage Leech, Signal Drain | chuyên khắc chế hero phụ thuộc skill nộ |
+| Signal Host | Signal Drain | phát nhiễu theo chu kỳ, phạm vi rộng hoặc toàn map tùy stage |
+| Tralalero Tralala Prime | Signal Drain, Desync | boss World 3, trọng tâm là rối nhịp và làm chậm nộ |
+| Dottore Mozzarella | Toxic Suppression | boss World 6, giảm hiệu quả hồi máu của người chơi |
+| La Torre Frequenza | Rage Lock, Ultimate Lock, Signal Drain | boss World 8, khóa nhịp nộ và skill nộ |
+| The Mother Frequency | Signal Drain, Desync, Rage Lock, Ultimate Lock | boss cuối, dùng lại các debuff trọng yếu của game |
+
+### Hiệu ứng xấu không tính là debuff status
+
+Các hiệu ứng dưới đây vẫn gây bất lợi, nhưng không bị xóa bởi skill giải debuff thông thường.
+
+| Hiệu ứng | Tác dụng | Nguồn gây ra | Cách khắc chế |
+| -------- | -------- | ------------ | ------------- |
+| **Knockback** | đẩy lùi tuyến trước, làm đội hình mất vị trí | Tung Tung Tung Sahur | dùng tanker cứng, khiên, kháng đẩy lùi |
+| **Backline Dive** | áp sát hoặc tấn công hero tuyến sau | Phase Stalker, Ballerino Cappuccino | giữ tanker đúng vị trí, dùng unit chặn đường, ưu tiên focus sát thủ |
+| **Enemy Haste** | tăng tốc độ di chuyển hoặc tấn công cho enemy | Bone Drummer, Tung Tung Tung Sahur | hạ enemy buff trước, dùng làm chậm hoặc sát thương diện rộng |
+| **Enemy Regrowth** | hồi máu hoặc tái kích hoạt enemy | Regrowth Host, Dottore Mozzarella | dùng burst damage, phá hồi máu, ưu tiên giết support |
 
 ### Vanguard Breaker
 
@@ -263,7 +387,7 @@ Lối chơi:
 Vai trò trong game:
 
 - NPC chính ở Research Lab
-- phụ trách nâng cấp hero và lõi Aegis
+- phụ trách hero level, nâng cấp skill nộ và lõi Aegis
 - giải thích lore về Aegis Resonance, Tần Số Mẹ và khả năng hoàn nguyên infected
 - xuất hiện trong báo cáo sau mỗi world boss
 
@@ -303,6 +427,61 @@ Phe phản diện không phải một đội quân bình thường. Họ là nh�
 
 Quái thường chỉ có đòn đánh cơ bản, không có thanh nộ và không dùng skill.
 
+Monster thường và elite dùng level để scale chỉ số. Vì vậy cùng một enemy như **Twitch Runner** ở World 1 và World 2 sẽ không có chỉ số giống nhau.
+
+### Cấp độ monster
+
+Monster level đi theo stage:
+
+```text
+Monster level stage thường = (world - 1) * 5 + ceil(stage / 2)
+Monster level boss stage = world * 5
+```
+
+Ví dụ:
+
+- World 1 Stage 1-2: monster level 1
+- World 1 Stage 9-10: monster level 5
+- World 2 Stage 1-2: monster level 6
+- World 10 boss: monster level 50
+
+### Công thức scale monster thường và elite
+
+```text
+HP  = HP level 1  * (1 + 0.09 * (monster level - 1))
+ATK = ATK level 1 * (1 + 0.08 * (monster level - 1))
+DEF = DEF level 1 * (1 + 0.07 * (monster level - 1))
+```
+
+Làm tròn số sau khi tính.
+
+Ví dụ **Twitch Runner**:
+
+| Vị trí              | Level | HP | ATK | DEF |
+| ------------------- | ----: | -: | --: | --: |
+| World 1 Stage 3-4   |     2 | 104 |  26 |   2 |
+| World 2 Stage 1-2   |     6 | 138 |  34 |   3 |
+| World 5 Stage 9-10  |    25 | 300 |  70 |   5 |
+
+### Bảng chỉ số monster level 1
+
+| Monster          | Loại | HP | ATK | DEF | Vai trò |
+| ---------------- | ---- | -: | --: | --: | ------- |
+| Blank Walker     | thường | 140 | 18 |  4 | đông, chậm, ép tuyến |
+| Twitch Runner    | thường |  95 | 24 |  2 | chạy nhanh, xuyên tuyến |
+| Jaw Crawler      | thường | 115 | 21 |  3 | bò thấp, khó bị một số unit bắn trúng |
+| Static Carrier   | thường | 180 | 28 |  5 | chết phát nổ nhiễu nhỏ |
+| Meat Shield Host | elite | 420 | 34 | 16 | tanker che chắn đàn |
+| Scream Spitter   | elite | 160 | 30 |  3 | bắn xa vào tuyến trước |
+| Bone Drummer     | elite | 220 | 22 |  6 | buff tốc đánh hoặc tốc chạy cho enemy gần đó |
+| Mute Leech       | elite | 190 | 20 |  5 | gây Rage Leech và Signal Drain |
+| Patch Beast      | elite | 560 | 55 | 18 | chậm, rất trâu, đánh đau |
+| Regrowth Host    | elite | 250 | 18 |  8 | hồi máu hoặc tái kích hoạt enemy |
+| Phase Stalker    | elite | 260 | 65 |  7 | áp sát tuyến sau |
+| Signal Host      | elite | 300 | 28 | 10 | phát Signal Drain diện rộng |
+| Red Host         | elite | 480 | 70 | 14 | tiến hóa trong trận |
+| Core Guardian    | elite | 900 | 95 | 25 | bảo vệ lõi, xuất hiện cuối game |
+
 ### 1. Đàn Nhiễm Cơ Bản
 
 Là những người mới biến dạng hoặc biến dạng chưa hoàn chỉnh. Chúng tạo thành wave đông, ép người chơi phải giữ tuyến.
@@ -328,6 +507,7 @@ Loại thường gặp:
   - Di chuyển: đi bộ chậm
   - Tầm đánh: cận chiến
   - Đòn đánh cơ bản: đập mạnh bằng thân thể vào mục tiêu trước mặt
+  - Debuff: khi chết phát nổ sóng nhiễu nhỏ, gây **Signal Drain** trong phạm vi gần
 
 ### 2. Dị Thể Chiến Đấu
 
@@ -344,6 +524,7 @@ Loại thường gặp:
   - Di chuyển: đi bộ chậm
   - Tầm đánh: tầm xa
   - Đòn đánh cơ bản: bắn một luồng sóng âm vào tuyến trước
+  - Debuff: có cơ hội gây **Desync**
 
 - **Bone Drummer**
   - Di chuyển: đi bộ vừa
@@ -354,11 +535,38 @@ Loại thường gặp:
   - Di chuyển: đi bộ vừa
   - Tầm đánh: cận chiến
   - Đòn đánh cơ bản: bám và cắn mục tiêu gần nhất
+  - Debuff: gây **Rage Leech** và **Signal Drain**
 
 - **Patch Beast**
   - Di chuyển: đi bộ chậm
   - Tầm đánh: cận chiến
   - Đòn đánh cơ bản: quét tay nặng, gây sát thương cao lên mục tiêu trước mặt
+
+- **Regrowth Host**
+  - Di chuyển: đi bộ chậm
+  - Tầm đánh: hỗ trợ tầm trung
+  - Đòn đánh cơ bản: phát xung tái sinh, hồi máu nhẹ cho enemy thấp máu nhất gần đó
+
+- **Phase Stalker**
+  - Di chuyển: chạy nhanh, có pha lướt ngắn
+  - Tầm đánh: cận chiến
+  - Đòn đánh cơ bản: lướt cắt vào mục tiêu tuyến sau nếu có khoảng trống
+
+- **Signal Host**
+  - Di chuyển: đi bộ vừa
+  - Tầm đánh: hỗ trợ toàn bản đồ theo chu kỳ
+  - Đòn đánh cơ bản: phát nhiễu làm chậm tốc độ tích nộ của hero trong thời gian ngắn
+  - Debuff: gây **Signal Drain**
+
+- **Red Host**
+  - Di chuyển: đi bộ nhanh
+  - Tầm đánh: cận chiến
+  - Đòn đánh cơ bản: cào liên tục, tự tăng ATK nếu sống quá lâu
+
+- **Core Guardian**
+  - Di chuyển: đi bộ chậm
+  - Tầm đánh: cận chiến diện rộng
+  - Đòn đánh cơ bản: đập lõi gây sát thương diện nhỏ trước mặt
 
 ### 3. Cá Thể Brainrot Hóa
 
@@ -381,6 +589,31 @@ Tần Số Mẹ có ba mục tiêu:
 
 ## Boss Theo World
 
+Boss có **Boss Level** riêng bằng `world * 5`.
+
+Công thức cơ sở:
+
+```text
+Boss HP  = HP gốc  * (1 + 0.12 * (boss level - 1))
+Boss ATK = ATK gốc * (1 + 0.09 * (boss level - 1))
+Boss DEF = DEF gốc * (1 + 0.08 * (boss level - 1))
+```
+
+### Bảng chỉ số boss gốc
+
+| Boss | World | Boss Level | HP gốc | ATK gốc | DEF gốc | Vai trò |
+| ---- | ----: | ---------: | -----: | ------: | ------: | ------- |
+| Patient Zero Escort | 1 | 5 | 1800 | 42 | 10 | nhiều hộ vệ, dạy focus target |
+| Trippo Motorico | 2 | 10 | 2400 | 58 | 12 | boss lao nhanh, gây thủng tuyến |
+| Tralalero Tralala Prime | 3 | 15 | 2900 | 64 | 15 | Signal Drain, Desync |
+| Bombardiro Crocodilo | 4 | 20 | 4200 | 78 | 24 | pháo kích, giáp dày |
+| Tung Tung Tung Sahur | 5 | 25 | 4000 | 72 | 20 | buff wave, tạo áp lực liên tục |
+| Dottore Mozzarella | 6 | 30 | 4600 | 68 | 22 | hồi máu, hồi sinh, Toxic Suppression |
+| Ballerino Cappuccino | 7 | 35 | 4300 | 88 | 18 | lao vào tuyến sau, chí mạng |
+| La Torre Frequenza | 8 | 40 | 5600 | 92 | 28 | Rage Lock, Ultimate Lock, node phụ |
+| Chimpanzini Bananini Red Host | 9 | 45 | 6200 | 106 | 30 | học skill nộ, scale theo thời gian |
+| The Mother Frequency | 10 | 50 | 8500 | 120 | 36 | boss cuối nhiều phase |
+
 ### World 1: Patient Zero Escort
 
 - Đòn đánh thường: cào hoặc đập cận chiến vào tuyến trước
@@ -396,7 +629,7 @@ Tần Số Mẹ có ba mục tiêu:
 ### World 3: Tralalero Tralala Prime
 
 - Đòn đánh thường: phát xung âm tầm xa gây sát thương tuyến trước
-- Skill nộ: làm chậm tích nộ, gây lệch nhịp khiến unit bắn trượt, tạo bản sao âm thanh
+- Skill nộ: gây **Signal Drain**, gây **Desync** khiến unit bắn trượt, tạo bản sao âm thanh
 - Khắc chế bởi hero: Aegis Medic
 
 ### World 4: Bombardiro Crocodilo
@@ -414,7 +647,7 @@ Tần Số Mẹ có ba mục tiêu:
 ### World 6: Dottore Mozzarella
 
 - Đòn đánh thường: quật cận chiến bằng tay tái sinh
-- Skill nộ: hồi máu cho enemy, hồi sinh quái đã chết, tạo vùng độc giảm hồi máu
+- Skill nộ: hồi máu cho enemy, hồi sinh quái đã chết, tạo vùng độc gây **Toxic Suppression**
 - Khắc chế bởi hero: Resonance Blade
 
 ### World 7: Ballerino Cappuccino
@@ -426,7 +659,7 @@ Tần Số Mẹ có ba mục tiêu:
 ### World 8: La Torre Frequenza
 
 - Đòn đánh thường: quật dây cáp tầm xa vào tuyến trước
-- Skill nộ: buff toàn bản đồ, khóa tích nộ và skill nộ vài giây, kích hoạt bảo vệ node phụ
+- Skill nộ: buff toàn bản đồ, gây **Rage Lock**, **Ultimate Lock** và **Signal Drain**, kích hoạt bảo vệ node phụ
 - Khắc chế bởi hero: Resonance Blade
 
 ### World 9: Chimpanzini Bananini Red Host
@@ -438,7 +671,7 @@ Tần Số Mẹ có ba mục tiêu:
 ### World 10: The Mother Frequency
 
 - Đòn đánh thường: xung nghịch pha quét diện rộng quanh lõi
-- Skill nộ: chuyển phase theo thứ tự The Choir of Tralala, Bombardiro Rex, Mother Frequency Core
+- Skill nộ: chuyển phase theo thứ tự The Choir of Tralala, Bombardiro Rex, Mother Frequency Core; phase The Choir dùng **Signal Drain**, **Desync**, **Rage Lock** và **Ultimate Lock**
 - Khắc chế bởi hero: Overdrive Titan
 
 ## Quy Tắc Thiết Kế Boss

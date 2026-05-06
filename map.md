@@ -29,6 +29,87 @@ Mỗi world có 10 stage thường. Độ khó tăng dần qua từng stage đ�
 
 Trận cuối world. Có boss riêng, cơ chế riêng và phần thưởng mở khóa world tiếp theo.
 
+## Level Và EXP Theo World
+
+Mỗi world tương ứng khoảng 5 level hero.
+
+| World | Level monster stage thường | Level boss | First Clear EXP stage thường | Repeat EXP stage thường | Boss First Clear EXP | Boss Repeat EXP |
+| ----- | -------------------------: | ---------: | ---------------------------: | ----------------------: | -------------------: | --------------: |
+| 1 | 1-5 | 5 | 80-125 | 45-63 | 290 | 140 |
+| 2 | 6-10 | 10 | 95-140 | 53-71 | 330 | 160 |
+| 3 | 11-15 | 15 | 110-155 | 61-79 | 370 | 180 |
+| 4 | 16-20 | 20 | 125-170 | 69-87 | 410 | 200 |
+| 5 | 21-25 | 25 | 140-185 | 77-95 | 450 | 220 |
+| 6 | 26-30 | 30 | 155-200 | 85-103 | 490 | 240 |
+| 7 | 31-35 | 35 | 170-215 | 93-111 | 530 | 260 |
+| 8 | 36-40 | 40 | 185-230 | 101-119 | 570 | 280 |
+| 9 | 41-45 | 45 | 200-245 | 109-127 | 610 | 300 |
+| 10 | 46-50 | 50 | 215-260 | 117-135 | 650 | 320 |
+
+EXP trong bảng là EXP đưa vào kho EXP tướng sau khi thắng stage. Người chơi dùng EXP này trong kho tướng để nâng level hero mong muốn.
+
+## Enemy Theo Stage
+
+Cùng một monster có thể xuất hiện ở nhiều world, nhưng chỉ số sẽ khác nhau do monster level tăng theo world và stage.
+
+Ví dụ:
+
+- Twitch Runner ở World 1 là level 2 đến 5
+- Twitch Runner ở World 2 là level 6 đến 10
+- Twitch Runner ở World 5 là level 21 đến 25
+
+Vì vậy enemy cùng tên không được copy stat y nguyên giữa các map.
+
+| World | Stage 1-3 | Stage 4-6 | Stage 7-10 | Boss stage |
+| ----- | --------- | --------- | ---------- | ---------- |
+| 1 | Blank Walker | Blank Walker, Twitch Runner | Blank Walker, Twitch Runner, Static Carrier | Patient Zero Escort, Blank Walker, Static Carrier |
+| 2 | Twitch Runner, Blank Walker | Twitch Runner, Jaw Crawler | Twitch Runner, Jaw Crawler, Static Carrier | Trippo Motorico, Twitch Runner |
+| 3 | Blank Walker, Scream Spitter | Scream Spitter, Mute Leech | Scream Spitter, Mute Leech, Blank Walker | Tralalero Tralala Prime, Mute Leech |
+| 4 | Meat Shield Host, Scream Spitter | Meat Shield Host, Patch Beast | Meat Shield Host, Patch Beast, Scream Spitter | Bombardiro Crocodilo, Meat Shield Host |
+| 5 | Twitch Runner, Bone Drummer | Bone Drummer, Meat Shield Host | Bone Drummer, Twitch Runner, Meat Shield Host | Tung Tung Tung Sahur, Twitch Runner, Bone Drummer |
+| 6 | Mute Leech, Scream Spitter | Regrowth Host, Mute Leech | Regrowth Host, Scream Spitter, Mute Leech | Dottore Mozzarella, Regrowth Host |
+| 7 | Phase Stalker, Mute Leech | Phase Stalker, Bone Drummer | Phase Stalker, Mute Leech, Bone Drummer | Ballerino Cappuccino, Phase Stalker |
+| 8 | Signal Host, Scream Spitter | Signal Host, Mute Leech | Signal Host, Scream Spitter, Mute Leech | La Torre Frequenza, Signal Host |
+| 9 | Red Host, Patch Beast | Red Host, Phase Stalker | Red Host, Patch Beast, Phase Stalker | Chimpanzini Bananini Red Host, Red Host |
+| 10 | Red Host, Core Guardian | Core Guardian, Signal Host, Red Host | Core Guardian, Red Host, tất cả elite cũ | The Mother Frequency, Core Guardian |
+
+## Objective Sao Theo World
+
+Mỗi stage tối đa 3 sao:
+
+- 1 sao: thắng stage
+- 2 sao và 3 sao: objective phụ theo world hoặc boss mechanic
+
+Objective phụ trong bảng là mẫu cho stage thường của từng world. Stage boss dùng objective riêng ở cột cuối.
+
+Bảng chi tiết cho từng stage cụ thể nằm trong file **cơ chế sao theo từng stage.md**.
+
+Sao của từng stage được cộng vào **Thành tựu sao World**. Khi đạt các mốc 10, 20, 30 và 33 sao trong world, người chơi mở rương thành tựu để nhận EXP tướng.
+
+| World | Objective phụ stage thường | Objective phụ boss stage |
+| ----- | -------------------------- | ------------------------ |
+| 1 | cổng Aegis còn trên 60% HP; không để quá 5 enemy chạm cổng | hạ toàn bộ hộ vệ trước khi boss hồi máu quá 2 lần; cổng còn trên 50% HP |
+| 2 | không để quá 3 Twitch Runner hoặc Jaw Crawler vượt tuyến; thắng trước mốc thời gian | chặn đủ các pha lao của Trippo Motorico; không để runner được gọi chạm cổng |
+| 3 | hero bị Signal Drain không quá 6 lần; hero bị Desync không quá 4 lần | phá bản sao âm thanh trong 10 giây; không để quá 2 hero cùng lúc bị Desync |
+| 4 | hạ Meat Shield Host hoặc Patch Beast trong thời gian yêu cầu; không để Scream Spitter bắn tuyến sau quá 5 lần | phá giáp Bombardiro Crocodilo trước mốc thời gian; không để hero tuyến sau chết |
+| 5 | diệt đủ số enemy trong chuỗi combo; không để Bone Drummer buff quá 3 wave | hạ wave phụ trong thời gian yêu cầu; tanker không bị đẩy lùi về sát cổng quá 2 lần |
+| 6 | không để Regrowth Host hồi máu quá 4 lần; hero bị Toxic Suppression không quá 5 lần | ngắt hồi máu của Dottore Mozzarella; không để boss hồi sinh quá 6 enemy |
+| 7 | không để Phase Stalker hạ hero tuyến sau; hạ elite trong thời gian yêu cầu | Ballerino Cappuccino không được hạ hero máu thấp; thắng trước khi boss dùng đủ 3 chuỗi chí mạng |
+| 8 | phá Signal Host trước khi phát Signal Drain toàn bản đồ quá 3 lần; giữ ít nhất 2 skill nộ dùng được sau đợt khóa | phá 3 node phát sóng trước mốc thời gian; không để Rage Lock và Ultimate Lock trúng toàn đội quá 2 lần |
+| 9 | hạ Red Host trước khi tiến hóa quá 2 lần; không để Phase Stalker xuyên tuyến sau | boss không copy cùng một skill nộ quá 2 lần; hạ phase cuối trước khi boss đạt stack tăng sức mạnh tối đa |
+| 10 | sống sót qua elite wave với cổng trên 40% HP; không để Core Guardian chạm cổng quá 2 lần | hoàn thành phase The Choir với ít hơn 6 debuff diện rộng; kích hoạt xung nghịch pha trước mốc thời gian |
+
+### Quy tắc biến thể theo stage
+
+Trong cùng một world, không cần tất cả stage dùng y nguyên cùng một objective.
+
+Gợi ý:
+
+- Stage 1-3: objective dễ, tập trung dạy cơ chế world.
+- Stage 4-6: objective vừa, bắt đầu yêu cầu người chơi counter enemy chính.
+- Stage 7-10: objective khó, yêu cầu đội hình và nâng cấp hợp lý.
+- Boss stage: objective gắn trực tiếp với boss mechanic.
+
 ## World 1: Trại Sơ Tán Thất Thủ
 
 Bối cảnh: khu ngoại ô từng là nơi sơ tán dân thường.
@@ -95,7 +176,7 @@ Bối cảnh: khu phố đóng kín, loa trong nhà phát âm thanh lặp, đư�
 Chủ đề:
 
 - nhiễu âm
-- debuff nộ
+- Signal Drain và Desync
 - enemy làm rối đội hình
 
 Enemy chính:
@@ -108,15 +189,15 @@ Boss: **Tralalero Tralala Prime**
 
 Cơ chế boss:
 
-- làm chậm tốc độ tích nộ
-- gây hiệu ứng lạc nhịp khiến unit đánh hụt
+- gây Signal Drain làm chậm tốc độ tích nộ
+- gây Desync khiến unit đánh hụt
 - tạo bản sao âm thanh
 
 Mở khóa:
 
 - Resonance Blade
 - item kháng debuff
-- nâng skill nộ hero
+- hệ thống nâng cấp skill nộ theo mốc level
 
 ## World 4: Nhà Máy Gãy Xương
 
@@ -185,7 +266,7 @@ Bối cảnh: bệnh viện nghiên cứu nơi lưu hồ sơ giai đoạn đầu
 Chủ đề:
 
 - hồi máu enemy
-- độc sinh học
+- Toxic Suppression
 - hé lộ khả năng hoàn nguyên người nhiễm
 
 Enemy chính:
@@ -200,7 +281,7 @@ Cơ chế boss:
 
 - hồi máu cho enemy
 - hồi sinh quái đã chết
-- tạo vùng độc giảm hồi máu của người chơi
+- tạo vùng độc gây Toxic Suppression, giảm hồi máu của người chơi
 
 Mở khóa:
 
@@ -235,8 +316,8 @@ Cơ chế boss:
 Mở khóa:
 
 - Overdrive Titan
-- hard mode world cũ
-- nâng cấp sao hero
+- chế độ thử thách world cũ
+- vật liệu nâng cấp skill nộ bậc cao
 
 ## World 8: Đài Phát Tín Hiệu
 
@@ -245,7 +326,7 @@ Bối cảnh: trạm phát sóng khổng lồ khuếch đại Tần Số Mẹ.
 Chủ đề:
 
 - phá node phụ
-- debuff toàn bản đồ
+- Signal Drain toàn bản đồ
 - trận boss có nhiều mục tiêu
 
 Enemy chính:
@@ -258,7 +339,7 @@ Boss: **La Torre Frequenza**
 
 Cơ chế boss:
 
-- khóa tích nộ và skill nộ của hero trong thời gian ngắn
+- gây Rage Lock và Ultimate Lock trong thời gian ngắn
 - buff infected toàn màn
 - phải phá 3 node phát sóng trước khi boss nhận sát thương lớn
 
@@ -318,7 +399,7 @@ Boss: **The Mother Frequency**
 
 Phase:
 
-- **The Choir of Tralala**: âm thanh hỗn loạn, debuff diện rộng
+- **The Choir of Tralala**: âm thanh hỗn loạn, gây Signal Drain, Desync, Rage Lock và Ultimate Lock diện rộng
 - **Bombardiro Rex**: hình thái công thành, sát thương cực cao
 - **Mother Frequency Core**: lõi thật, cần dùng xung nghịch pha Aegis
 
