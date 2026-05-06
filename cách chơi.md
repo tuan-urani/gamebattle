@@ -24,7 +24,7 @@ Người chơi là chỉ huy Quân Đoàn Aegis, sử dụng **Aegis Energy** đ
 6. Unit tự đánh, tự tích nộ và tự dùng skill nộ khi đầy nộ.
 7. Phá tuyến infected hoặc đánh bại boss.
 8. Nhận thưởng.
-9. Nâng cấp hero, item, lõi Aegis.
+9. Nâng cấp hero.
 10. Mở stage tiếp theo.
 
 ## Mục tiêu trong trận
@@ -197,20 +197,6 @@ Sao dùng để:
 - mở rương world
 - mở hard mode
 - nhận vật liệu nâng cấp
-
-## Trạng thái trong trận
-
-### Desync
-
-Enemy bị lệch nhịp, giảm tốc độ di chuyển và tốc độ đánh.
-
-### Silence Signal
-
-Hero không tích nộ và không dùng được skill nộ trong vài giây.
-
-### Clean Pulse
-
-Xóa debuff brainrot khỏi đồng minh.
 
 ## Nhịp chơi mong muốn
 
