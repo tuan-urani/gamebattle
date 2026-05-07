@@ -70,7 +70,7 @@ EXP trong bảng là EXP đưa vào kho EXP tướng sau khi thắng stage. Ngư
 
 Cùng một monster có thể xuất hiện ở nhiều world, nhưng chỉ số sẽ khác nhau do monster level tăng theo world và stage.
 
-File tổng hợp nhanh về roster, stat và monster theo world nằm ở **character_monster_stat_master.md**.
+File tổng hợp nhanh về roster, stat và monster theo world nằm ở **character and monsters.md**.
 
 Ví dụ:
 

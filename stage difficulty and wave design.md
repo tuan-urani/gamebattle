@@ -25,7 +25,7 @@ Tài liệu này trả lời thêm:
 
 Các quyết định dưới đây dùng làm base cho thiết kế stage. Nếu các file khác khác với phần này thì nên cập nhật lại cho thống nhất.
 
-File tổng hợp nhanh về character, monster, boss, level và stat nằm ở **character_monster_stat_master.md**.
+File tổng hợp nhanh về character, monster, boss, level và stat nằm ở **character and monsters.md**.
 
 - Formation mặc định có **4 slot** từ đầu game, nhưng World 1 chỉ có 2 hero để chọn.
 - Formation slot thứ 5 mở ở **World 8**.
