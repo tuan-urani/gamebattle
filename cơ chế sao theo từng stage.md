@@ -17,6 +17,16 @@ Tổng quy mô hiện tại:
 - **2 sao**: hoàn thành objective phụ thứ nhất
 - **3 sao**: hoàn thành objective phụ thứ hai
 
+## Quy tắc mở boss
+
+Trong mỗi world:
+
+- 10 stage thường tạo thành tổng tối đa **30 sao**
+- boss stage chỉ mở khi người chơi đã đạt đủ **30/30 sao** của 10 stage thường
+- 3 sao của boss không dùng để mở boss, mà chỉ dùng để hoàn tất mốc **33/33 sao** của world
+
+Điều này có nghĩa là người chơi có thể thắng từng stage thường với 1 sao, nhưng nếu chưa hoàn thiện đủ toàn bộ 30 sao thì vẫn chưa được vào boss.
+
 ## Quy ước đo objective
 
 - `chạm cổng`: enemy chạm hitbox cổng Aegis ít nhất 1 lần

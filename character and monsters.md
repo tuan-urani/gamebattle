@@ -35,7 +35,6 @@ Người chơi là chỉ huy Quân Đoàn Aegis. Người chơi không trực ti
 - đội hình chiến binh
 - thời điểm triển khai unit
 - nâng cấp hero
-- nâng cấp item và lõi Aegis
 - chiến thuật vượt từng world để tiến tới lõi Tần Số Mẹ
 
 Người chơi là chỉ huy Quân Đoàn Aegis, sử dụng **Aegis Energy** để triển khai các chiến binh đã sống sót qua quá trình **Aegis Resonance** ra chiến trường.
@@ -48,6 +47,8 @@ Phiên bản thiết kế ban đầu dùng quy mô rõ ràng để dễ cân b�
 - **14 monster thường hoặc elite**
 - **10 boss world**
 - tổng enemy type tính cả boss: **24**
+
+File tổng hợp nhanh về số lượng, level, HP, ATK, DEF và monster theo world nằm ở **character_monster_stat_master.md**.
 
 Không thêm hero hoặc monster mới nếu chưa có vai trò gameplay riêng. Nếu chỉ cần tăng độ khó, ưu tiên tăng level, wave composition hoặc modifier của map.
 
@@ -103,18 +104,18 @@ Mỗi chiến binh Aegis chỉ có 2 loại hành động:
 - **Đòn đánh cơ bản**: tự động đánh theo vai trò của class
 - **Skill nộ**: đánh thường sẽ tích nộ, khi đầy nộ thì chiến binh tự động dùng skill nộ
 
-Skill nộ có thể được nâng cấp theo bậc. Hero cần đạt các mốc level như 10, 15 và 20 để mở quyền nâng skill nộ lên bậc cao hơn.
+Skill nộ có thể được nâng cấp theo bậc. Hero đạt các mốc level 15, 30 và 45 sẽ tự mở bậc skill nộ cao hơn.
 
 Nguyên tắc nâng skill nộ:
 
-- level chỉ mở điều kiện nâng, không tự động nâng skill
+- bậc skill nộ tự mở theo mốc level, không dùng tài nguyên riêng
 - mỗi bậc skill nên tăng hiệu ứng rõ ràng
 - ưu tiên tăng số mục tiêu, phạm vi, thời gian hiệu lực, số debuff được giải hoặc lượng tài nguyên tạo ra
 - tránh chỉ tăng sát thương theo phần trăm nếu không tạo khác biệt trong cách chơi
 
 ### Bảng nâng cấp skill nộ
 
-| Hero       | Bậc 1 | Bậc 2 - level 10 | Bậc 3 - level 15 | Bậc 4 - level 20 |
+| Hero       | Bậc 1 | Bậc 2 - level 15 | Bậc 3 - level 30 | Bậc 4 - level 45 |
 | ---------- | ----- | ---------------- | ---------------- | ---------------- |
 | Kael Voss | Khiên cho tuyến trước gần nhất, đẩy lùi enemy gần nhất | Khiên ảnh hưởng 2 đồng minh tuyến trước | Tăng thời gian khiên và lực đẩy lùi | Khiên nhận thêm kháng debuff ngắn hạn |
 | Mira Sane | Bắn xuyên một đường thẳng | Thêm một phát phụ vào enemy máu thấp | Đòn xuyên làm chậm enemy trúng đạn | Đòn xuyên gây thêm sát thương lên enemy bị giáp hoặc khiên |
@@ -131,8 +132,7 @@ Quy tắc chung:
 
 - debuff có thể bị giảm thời gian bởi chỉ số kháng debuff
 - Aegis Medic có thể xóa debuff bằng skill nộ
-- item kháng debuff chỉ tác động lên debuff status, không chặn boss mechanic hoặc enemy buff
-- hiệu ứng tức thời như rút nộ sẽ không có thời gian tồn tại, nhưng vẫn được tính là debuff để item kháng có thể giảm mức ảnh hưởng
+- hiệu ứng tức thời như rút nộ sẽ không có thời gian tồn tại, nhưng vẫn được tính là debuff để hệ thống objective và UI có thể theo dõi
 
 ### Debuff status v0.1
 
@@ -380,14 +380,14 @@ Lối chơi:
 
 ## NPC Hậu Phương: Đội Nghiên Cứu Kháng Não
 
-Đội Nghiên Cứu Kháng Não không phải đơn vị chiến đấu. Họ là nhóm NPC hậu phương, phụ trách shop, nâng cấp hero, nâng cấp item, nghiên cứu Aegis và phân tích dữ liệu sau mỗi world. Người chơi không triển khai họ ra trận, nhưng mọi sức mạnh của Quân Đoàn Aegis đều được duy trì nhờ họ.
+Đội Nghiên Cứu Kháng Não không phải đơn vị chiến đấu. Họ là nhóm NPC hậu phương, phụ trách nâng cấp hero, nghiên cứu Aegis và phân tích dữ liệu sau mỗi world. Người chơi không triển khai họ ra trận, nhưng mọi sức mạnh của Quân Đoàn Aegis đều được duy trì nhờ họ.
 
 ### Dr. Lena Oris
 
 Vai trò trong game:
 
 - NPC chính ở Research Lab
-- phụ trách hero level, nâng cấp skill nộ và lõi Aegis
+- phụ trách hero level và nâng cấp skill nộ
 - giải thích lore về Aegis Resonance, Tần Số Mẹ và khả năng hoàn nguyên infected
 - xuất hiện trong báo cáo sau mỗi world boss
 
@@ -401,8 +401,8 @@ Tính cách:
 
 Vai trò trong game:
 
-- NPC chính ở Shop và Item Upgrade
-- phụ trách vũ khí, giáp, bẫy, công sự và blueprint
+- NPC kỹ thuật hậu phương
+- phụ trách bẫy, công sự, blueprint và phân tích chiến trường
 - giải thích các unlock kỹ thuật sau mỗi world
 - đại diện cho phần thực dụng của căn cứ Aegis
 
@@ -586,6 +586,7 @@ Tần Số Mẹ có ba mục tiêu:
 
 - giữ infected không hoàn nguyên thành người
 - bảo vệ lõi phát xạ trung tâm khỏi bị phá
+- mở rộng vùng phát xạ để đồng hóa những nhóm người sống sót còn lại
 
 ## Boss Theo World
 
@@ -630,7 +631,7 @@ Boss DEF = DEF gốc * (1 + 0.08 * (boss level - 1))
 
 - Đòn đánh thường: phát xung âm tầm xa gây sát thương tuyến trước
 - Skill nộ: gây **Signal Drain**, gây **Desync** khiến unit bắn trượt, tạo bản sao âm thanh
-- Khắc chế bởi hero: Aegis Medic
+- Khắc chế bởi hero: Resonance Blade
 
 ### World 4: Bombardiro Crocodilo
 

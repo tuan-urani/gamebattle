@@ -9,7 +9,7 @@ Người chơi không điều khiển từng nhân vật di chuyển thủ công
 - giữ cổng căn cứ
 - chống các wave infected
 - đẩy đội hình tiến lên
-- phá cổng hoặc lõi của enemy
+- phá ổ infected hoặc cổng brainrot bên phải ở stage thường
 - đánh bại boss cuối stage
 
 Người chơi là chỉ huy Quân Đoàn Aegis, sử dụng **Aegis Energy** để triển khai các chiến binh đã sống sót qua quá trình **Aegis Resonance** ra chiến trường.
@@ -22,9 +22,9 @@ Người chơi là chỉ huy Quân Đoàn Aegis, sử dụng **Aegis Energy** đ
 4. Tích tài nguyên chiến đấu theo thời gian.
 5. Triển khai hero hoặc unit.
 6. Unit tự đánh, tự tích nộ và tự dùng skill nộ khi đầy nộ.
-7. Phá tuyến infected hoặc đánh bại boss.
+7. Stage thường: đẩy lane và phá ổ infected/cổng brainrot bên phải. Boss stage: đánh bại boss.
 8. Nhận thưởng và EXP vào kho EXP tướng.
-9. Vào kho tướng để dùng EXP nâng hero level hoặc nâng skill nộ khi đủ điều kiện.
+9. Vào kho tướng để dùng EXP nâng hero level; skill nộ tự mở bậc mới khi hero đạt đúng mốc level.
 10. Mở stage tiếp theo.
 
 ## Mục tiêu trong trận
@@ -34,17 +34,18 @@ Mỗi trận có hai phe:
 - bên trái: căn cứ hoặc cổng Aegis của người chơi
 - bên phải: ổ infected, cổng brainrot hoặc boss
 
-Điều kiện thắng:
+### Điều kiện thắng
 
-- phá cổng enemy
-- hoặc tiêu diệt boss
-- hoặc sống sót qua toàn bộ wave tùy loại stage
+- **Stage thường**: đẩy lane sang phải và phá **ổ infected/cổng brainrot** bên phải.
+- **Boss stage**: tiêu diệt **boss**. Khi boss chết, stage kết thúc thắng, không cần phá thêm trụ/cổng địch.
 
-Điều kiện thua:
+### Điều kiện thua
 
-- cổng Aegis bị phá
-- toàn bộ đội hình bị quét sạch
-- hết thời gian trong một số stage đặc biệt
+- **Cổng Aegis bên trái bị phá**.
+- Toàn bộ đội hình trên sân bị quét sạch trong lúc không còn khả năng triển khai đủ để giữ tuyến.
+- Hết thời gian nếu stage hoặc boss mechanic có giới hạn thời gian riêng.
+
+Enemy luôn có mục tiêu cuối là tiến sang trái và tấn công **cổng Aegis**. Người chơi thua nếu để enemy phá cổng này.
 
 ## Tài nguyên trong trận
 
@@ -88,38 +89,6 @@ Nhược điểm:
 - cần thời gian mới tạo đủ giá trị
 - nếu trận quá ngắn, hiệu quả kém hơn unit sát thương
 
-### Item đặc biệt tạo Aegis Energy là gì?
-
-Item đặc biệt là item được trang bị trực tiếp lên hero, không phải buff chung mơ hồ của cả tài khoản.
-
-Mỗi hero có 3 slot item:
-
-- **Weapon Module**
-- **Armor Module**
-- **Tactical Chip**
-
-Các item tạo Aegis Energy thường nằm ở slot **Tactical Chip** hoặc một số **Weapon Module** đặc biệt. Chúng có thể mua trong shop hoặc nhận từ boss.
-
-Ví dụ:
-
-- **Starter Capacitor**  
-  Bắt đầu trận với thêm 10 Aegis Energy.
-
-- **Resonance Battery**  
-  Tăng giới hạn Aegis Energy tối đa thêm 20.
-
-- **Kill Converter Chip**  
-  Mỗi 10 enemy bị tiêu diệt sẽ nhận thêm 8 Aegis Energy.
-
-- **Boss Siphon Module**  
-  Mỗi khi gây mất 10% máu boss, nhận 5 Aegis Energy.
-
-- **Perfect Hold Badge**  
-  Nếu cổng Aegis không mất máu trong 30 giây đầu, nhận 15 Aegis Energy.
-
-- **Heavy Deploy Refund Cell**  
-  Sau khi triển khai unit giá cao, hoàn lại 15% chi phí nếu unit sống quá 20 giây.
-
 ### Nộ
 
 Mỗi chiến binh có một thanh nộ riêng. Người chơi không bấm skill thủ công.
@@ -135,10 +104,9 @@ Cách hoạt động:
 Thông số gợi ý:
 
 - mỗi chiến binh cần 100 nộ để dùng skill nộ
-- đòn đánh thường tạo khoảng 8 đến 15 nộ ở level thấp, sau đó tăng theo hero level và item
+- đòn đánh thường tạo khoảng 8 đến 15 nộ ở level thấp, sau đó tăng theo hero level
 - tanker có thể nhận thêm nộ khi bị đánh
 - healer có thể nhận thêm nộ khi hồi máu
-- item có thể tăng tốc độ tích nộ hoặc lượng nộ khởi đầu
 
 ### Nâng cấp skill nộ
 
@@ -146,9 +114,9 @@ Skill nộ vẫn được kích hoạt tự động khi đầy nộ, nhưng hi�
 
 Quy tắc:
 
-- hero đạt level 10, 15, 20 sẽ mở quyền nâng skill nộ lên bậc cao hơn
-- level chỉ mở điều kiện nâng, không tự động nâng skill
-- người chơi nâng skill nộ trong UI nâng cấp hero
+- hero đạt level 15, 30, 45 sẽ tự mở bậc skill nộ cao hơn
+- skill nộ không dùng tài nguyên riêng
+- người chơi chỉ cần farm EXP tướng và nâng level hero
 - mỗi bậc skill nên tăng hiệu ứng gameplay rõ ràng
 
 Ví dụ:
@@ -173,7 +141,6 @@ Quy tắc:
 - debuff có icon và thời gian còn lại trên hero
 - debuff cùng loại không cộng dồn, chỉ refresh thời gian
 - Aegis Medic có thể xóa debuff bằng skill nộ
-- item kháng debuff làm giảm thời gian hoặc mức ảnh hưởng của debuff
 - hiệu ứng vị trí như bị đẩy lùi hoặc bị enemy lao vào tuyến sau không được xóa bằng giải debuff thông thường
 
 Debuff status hiện tại gồm:
@@ -225,6 +192,12 @@ Mỗi world có 10 stage thường và 1 stage boss.
 
 Độ khó tăng dần qua từng stage, giúp người chơi farm EXP để nâng cấp hero trước khi vào boss.
 
+Mục tiêu thắng của stage thường luôn là:
+
+- giữ cổng Aegis bên trái không bị phá
+- đẩy lane sang phải
+- phá ổ infected hoặc cổng brainrot của enemy
+
 Replay stage thường là nguồn farm EXP chính, nhưng mỗi lần vào stage đều tốn stamina dù thắng hay thua.
 
 Khi thắng stage, EXP được cộng vào kho EXP tướng. Người chơi không nhận level tự động sau trận; cần vào kho tướng và dùng EXP để nâng hero mong muốn.
@@ -232,6 +205,21 @@ Khi thắng stage, EXP được cộng vào kho EXP tướng. Người chơi kh�
 ### Stage boss
 
 Trận cuối world, xuất hiện boss với cơ chế riêng.
+
+Boss stage chỉ mở khi người chơi đã:
+
+- thắng đủ 10 stage thường của world
+- đạt đủ **30/30 sao** của 10 stage thường đó
+
+Điều này có nghĩa là muốn gặp boss, người chơi phải hoàn thành trọn vẹn toàn bộ phần campaign thường của world, không thể chỉ thắng cho qua.
+
+Mục tiêu thắng của boss stage luôn là:
+
+- giữ cổng Aegis bên trái không bị phá
+- xử lý wave phụ, node phụ hoặc mechanic boss nếu có
+- tiêu diệt boss
+
+Boss chết là thắng stage. Không cần phá thêm ổ infected hoặc cổng brainrot sau khi boss đã bị hạ.
 
 ## Cơ chế sao
 
@@ -248,6 +236,11 @@ Objective phụ phải thay đổi theo world, stage type hoặc boss mechanic. 
 Chi tiết điều kiện sao của toàn bộ 110 stage được thống kê trong file **cơ chế sao theo từng stage.md**.
 
 Sao không phải tiền tệ tiêu hao. Sao được ghi nhận vào **Thành tựu sao World**.
+
+Sao cũng là điều kiện mở khóa progression:
+
+- đủ **30/30 sao** của 10 stage thường trong một world mới mở được boss stage của world đó
+- sao của boss không dùng để mở boss, mà dùng để hoàn tất mốc **33 sao** và nhận thưởng perfect clear
 
 Khi tổng sao trong một world đạt mốc nhất định, người chơi nhận được rương thành tựu của world đó. Rương mở ra **EXP tướng** để đưa vào kho EXP tướng.
 
@@ -273,6 +266,13 @@ Objective phụ có thể thuộc các nhóm sau:
 ### Thành tựu sao World
 
 Mỗi world có 11 stage, tối đa 33 sao.
+
+Trong đó:
+
+- 10 stage thường = **30 sao**
+- 1 boss stage = **3 sao**
+
+Mốc **30 sao** là cột mốc progression bắt buộc để vào boss. Mốc **33 sao** là perfect clear toàn world.
 
 Rương thành tựu chỉ nhận một lần theo từng world.
 

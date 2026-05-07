@@ -109,7 +109,7 @@ Ví dụ:
 - **Ballerino Cappuccino**  
   Một biến thể nhanh, đẹp theo cách đáng sợ, di chuyển như đang biểu diễn nhưng ra đòn cực gắt. Thường là sản phẩm của những vật chủ có phản xạ và khả năng vận động tốt.
 
-- **Cantatore Mozzarella**  
+- **Dottore Mozzarella**  
   Dị thể hỗ trợ. Tiếng hú của nó làm liền mô thịt, tái kích hoạt infected đã ngã và kéo dài đợt tấn công.
 
 ## Phe của người chơi
@@ -147,7 +147,7 @@ Họ chiến đấu không phải chỉ để sống sót. Họ là mũi giáo c
   Chiến binh hiếm nhất, dùng bản Aegis liều cao. Họ có sức mạnh ngang mini-boss, phù hợp làm unit đắt và cooldown lâu.
 
 ### 3. Đội Nghiên Cứu Kháng Não
-Đội Nghiên Cứu Kháng Não không phải đơn vị chiến đấu. Họ là nhóm NPC hậu phương, phụ trách shop, nâng cấp hero, nâng cấp item, nghiên cứu Aegis và phân tích dữ liệu sau mỗi world. Người chơi không triển khai họ ra trận, nhưng mọi sức mạnh của Quân Đoàn Aegis đều được duy trì nhờ họ.
+Đội Nghiên Cứu Kháng Não không phải đơn vị chiến đấu. Họ là nhóm NPC hậu phương, phụ trách nâng cấp hero, nghiên cứu Aegis và phân tích dữ liệu sau mỗi world. Người chơi không triển khai họ ra trận, nhưng mọi sức mạnh của Quân Đoàn Aegis đều được duy trì nhờ họ.
 
 Họ là một nhóm bác sĩ thần kinh, nhà virus học và kỹ sư tín hiệu đang cố tìm:
 - nguồn phát ban đầu
@@ -156,18 +156,16 @@ Họ là một nhóm bác sĩ thần kinh, nhà virus học và kỹ sư tín hi
 - cách đảo ngược hoàn toàn quá trình đồng hóa sau khi lõi mẹ bị phá
 
 Trong game, nhóm này xuất hiện ở:
-- shop
+
 - nâng cấp hero
-- nâng cấp item
-- nâng cấp lõi Aegis
+- nâng cấp skill nộ
 - màn hình nghiên cứu
 - báo cáo dữ liệu sau khi hạ boss world
 
-Shop và upgrade có thể gắn trực tiếp vào nhóm này:
-- nâng giáp, vũ khí, bẫy
+Upgrade hero có thể gắn trực tiếp vào nhóm này:
 - mở công nghệ lọc âm
 - tăng sức kháng nhiễu cho chiến binh
-- tăng hiệu suất lõi Aegis
+- phân tích dữ liệu để mở nâng cấp skill nộ
 - phát triển chất ức chế tạm thời để chặn mutation
 
 ## Phe phản diện
@@ -286,7 +284,7 @@ Chiến thắng của người chơi vì thế không chỉ là chấm dứt đ�
 ## Vì sao hướng truyện này hợp với game trong video
 - Giải thích rất rõ loop thủ cổng và đẩy wave: phe người sống chống các đợt infected tràn tới.
 - Dễ gắn từng loại enemy trong video thành các biến thể của bệnh brainrot.
-- Hệ shop/upgrade có lý do tự nhiên: bảo trì và nâng cấp Aegis, nghiên cứu kháng bệnh, nâng công sự, vũ khí, lọc âm.
+- Hệ upgrade có lý do tự nhiên: nghiên cứu kháng bệnh, phân tích infected và nâng cấp năng lực chiến đấu của hero.
 - World map khớp với hành trình từ căn cứ sống sót ra tận lõi mẹ.
 - Boss progression rõ ràng, dễ triển khai thành chapter.
 

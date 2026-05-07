@@ -16,7 +16,7 @@ Mỗi world gồm:
 
 Gợi ý unlock:
 
-- vượt 10 stage thường để mở boss
+- vượt 10 stage thường và đạt đủ **30/30 sao** của 10 stage thường để mở boss
 - hạ boss để mở world kế tiếp
 
 ## Loại node trên bản đồ
@@ -25,9 +25,27 @@ Gợi ý unlock:
 
 Mỗi world có 10 stage thường. Độ khó tăng dần qua từng stage để người chơi farm EXP, nâng cấp hero và chuẩn bị cho boss.
 
+Mục tiêu thắng của stage thường là **đẩy lane và phá ổ infected/cổng brainrot bên phải**.
+
+Điều kiện thua là **cổng Aegis bên trái bị phá**. Enemy trong stage thường luôn tiến về phía cổng Aegis để tấn công và gây thua nếu người chơi không giữ tuyến.
+
 ### Stage boss
 
 Trận cuối world. Có boss riêng, cơ chế riêng và phần thưởng mở khóa world tiếp theo.
+
+Boss stage không mở ngay khi chỉ thắng đủ 10 stage thường. Người chơi phải hoàn thành đủ **30/30 sao** của 10 stage thường trong world đó mới được mở khóa boss.
+
+Mục tiêu thắng của stage boss là **giết boss**. Khi boss chết, màn kết thúc thắng ngay, không cần phá thêm ổ infected hoặc cổng brainrot.
+
+Điều kiện thua vẫn là **cổng Aegis bên trái bị phá**. Boss có thể trực tiếp tấn công cổng hoặc dùng wave phụ, node phụ, debuff và mechanic riêng để tạo áp lực lên cổng Aegis.
+
+### Stage thử thách elite
+
+Stage thử thách elite là node phụ mở từ World 2, không nằm trong chuỗi bắt buộc 10 stage thường + 1 stage boss của mỗi world.
+
+Mục tiêu thắng/thua vẫn dùng luật của stage thường hoặc boss stage tùy biến thể, nhưng có modifier khó hơn như wave dày hơn, enemy elite xuất hiện sớm hơn, giới hạn thời gian gắt hơn hoặc objective sao phụ khắt khe hơn.
+
+Stage thử thách elite dùng để farm thêm EXP, kiểm tra đội hình và tạo nội dung optional cho người chơi đã nâng cấp tốt. Không dùng node này để khóa tiến trình campaign chính.
 
 ## Level Và EXP Theo World
 
@@ -52,6 +70,8 @@ EXP trong bảng là EXP đưa vào kho EXP tướng sau khi thắng stage. Ngư
 
 Cùng một monster có thể xuất hiện ở nhiều world, nhưng chỉ số sẽ khác nhau do monster level tăng theo world và stage.
 
+File tổng hợp nhanh về roster, stat và monster theo world nằm ở **character_monster_stat_master.md**.
+
 Ví dụ:
 
 - Twitch Runner ở World 1 là level 2 đến 5
@@ -71,7 +91,7 @@ Vì vậy enemy cùng tên không được copy stat y nguyên giữa các map.
 | 7 | Phase Stalker, Mute Leech | Phase Stalker, Bone Drummer | Phase Stalker, Mute Leech, Bone Drummer | Ballerino Cappuccino, Phase Stalker |
 | 8 | Signal Host, Scream Spitter | Signal Host, Mute Leech | Signal Host, Scream Spitter, Mute Leech | La Torre Frequenza, Signal Host |
 | 9 | Red Host, Patch Beast | Red Host, Phase Stalker | Red Host, Patch Beast, Phase Stalker | Chimpanzini Bananini Red Host, Red Host |
-| 10 | Red Host, Core Guardian | Core Guardian, Signal Host, Red Host | Core Guardian, Red Host, tất cả elite cũ | The Mother Frequency, Core Guardian |
+| 10 | Red Host, Core Guardian | Core Guardian, Signal Host, Red Host | Core Guardian, Red Host, Signal Host, Phase Stalker, Patch Beast | The Mother Frequency, Core Guardian |
 
 ## Objective Sao Theo World
 
@@ -84,7 +104,7 @@ Objective phụ trong bảng là mẫu cho stage thường của từng world. S
 
 Bảng chi tiết cho từng stage cụ thể nằm trong file **cơ chế sao theo từng stage.md**.
 
-Sao của từng stage được cộng vào **Thành tựu sao World**. Khi đạt các mốc 10, 20, 30 và 33 sao trong world, người chơi mở rương thành tựu để nhận EXP tướng.
+Sao của từng stage được cộng vào **Thành tựu sao World**. Với mỗi world, **30 sao từ 10 stage thường** là điều kiện bắt buộc để mở boss. Sau khi hạ boss, người chơi có thể lấy sao boss để hoàn tất mốc **33 sao** và mở rương hoàn hảo của world.
 
 | World | Objective phụ stage thường | Objective phụ boss stage |
 | ----- | -------------------------- | ------------------------ |
@@ -167,7 +187,7 @@ Mở khóa:
 
 - Core Engineer
 - bẫy làm chậm
-- stage elite
+- stage thử thách elite
 
 ## World 3: Khu Dân Cư Im Lặng
 
@@ -196,8 +216,8 @@ Cơ chế boss:
 Mở khóa:
 
 - Resonance Blade
-- item kháng debuff
-- hệ thống nâng cấp skill nộ theo mốc level
+- objective chống debuff
+- hệ thống nâng cấp skill nộ theo mốc level, bậc 2 ở level 15
 
 ## World 4: Nhà Máy Gãy Xương
 
@@ -221,13 +241,12 @@ Cơ chế boss:
 
 - bắn đạn hữu cơ vào tuyến sau
 - có giáp dày
-- cần unit áp sát hoặc phá giáp
+- cần unit áp sát hoặc focus đúng mục tiêu giáp dày
 
 Mở khóa:
 
-- item phá giáp
-- nâng cấp vũ khí bậc 2
-- formation slot thứ tư
+- formation preset
+- counter enemy giáp dày
 
 ## World 5: Chợ Đêm Không Ngủ
 
@@ -257,7 +276,7 @@ Mở khóa:
 
 - Aegis Medic
 - hiển thị thanh nộ của unit
-- nâng cấp lõi Aegis
+- đội hình hồi máu và giải debuff
 
 ## World 6: Bệnh Viện Đen
 
@@ -285,8 +304,8 @@ Cơ chế boss:
 
 Mở khóa:
 
-- hệ thống item set
-- nâng cấp Aegis Medic
+- counter hồi máu
+- tối ưu Aegis Medic bằng EXP và mở skill nộ bậc 3 ở level 30
 - lore về cơ chế hoàn nguyên
 
 ## World 7: Thành Phố Méo Giọng
@@ -317,7 +336,7 @@ Mở khóa:
 
 - Overdrive Titan
 - chế độ thử thách world cũ
-- vật liệu nâng cấp skill nộ bậc cao
+- replay farm EXP world cũ hiệu quả hơn
 
 ## World 8: Đài Phát Tín Hiệu
 
@@ -345,8 +364,8 @@ Cơ chế boss:
 
 Mở khóa:
 
-- item legendary đầu tiên
 - nâng cấp formation slot thứ năm
+- node phụ trong boss stage
 - giảm chi phí một số stage cũ
 
 ## World 9: Vùng Đỏ Trung Tâm
@@ -376,7 +395,7 @@ Cơ chế boss:
 Mở khóa:
 
 - xung nghịch pha Aegis
-- nâng cấp skill nộ cao cấp
+- nâng skill nộ bậc 4 ở level 45
 - cổng vào lõi mẹ
 
 ## World 10: Lõi Phát Xạ
@@ -413,5 +432,5 @@ Mở khóa sau khi hoàn thành:
 
 - Mỗi world mới cần có một biến thể brainrot trung tâm.
 - Boss phải có cơ chế riêng, không chỉ tăng chỉ số.
-- Mỗi world nên mở một hệ thống hoặc vật liệu mới.
+- Mỗi world nên mở một hệ thống, hero hoặc dạng thử thách mới.
 - Môi trường phải kể chuyện: càng gần lõi mẹ, thế giới càng ít giống thế giới con người.

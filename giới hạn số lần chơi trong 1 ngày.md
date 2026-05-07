@@ -4,7 +4,7 @@
 
 Hệ stamina tồn tại để:
 
-- kiểm soát tốc độ farm EXP và vật liệu
+- kiểm soát tốc độ farm EXP
 - tránh người chơi vượt progression quá nhanh
 - tạo nhịp quay lại trong ngày
 - giữ cân bằng giữa người chơi miễn phí và người chơi nạp
@@ -42,7 +42,7 @@ Nhịp này đủ để:
 | Stage thường world 1-3 | 6 |
 | Stage thường world 4-6 | 8 |
 | Stage thường world 7-10 | 10 |
-| Stage elite | 12 |
+| Stage thử thách elite | 12 |
 | Boss world 1-3 | 10 |
 | Boss world 4-6 | 12 |
 | Boss world 7-10 | 15 |
@@ -61,7 +61,7 @@ Lý do:
 
 - tránh việc người chơi thoát ra vào liên tục để dò wave miễn phí
 - khiến quyết định vào stage và chọn đội hình có giá trị hơn
-- kiểm soát farm EXP và vật liệu ổn định hơn
+- kiểm soát farm EXP ổn định hơn
 
 ## Mua hoặc xem quảng cáo để lấy stamina
 
